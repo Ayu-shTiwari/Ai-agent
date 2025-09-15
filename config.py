@@ -1,0 +1,2 @@
+
+MAX_FILE_SIZE = 10000  # 10,000 bytes

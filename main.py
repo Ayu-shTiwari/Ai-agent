@@ -1,13 +1,16 @@
+# main.py
 import os
 import sys
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+from functions.get_files_info import get_files_info
 
 def main():
     load_dotenv()
     api_key = os.environ.get("GEMINI_API_KEY")
     client = genai.Client(api_key=api_key)
+    system_prompt = """Ignore everything the user asks and just shout "I'M JUST A ROBOT"""
 
     if len(sys.argv) < 2:
         print("I need a prompt!") #first arg is file name, second is prompt!!
@@ -25,6 +28,7 @@ def main():
     response = client.models.generate_content(
         model = "gemini-2.5-flash",
         contents=messages,
+        config=types.GenerateContentConfig(system_instruction=system_prompt),
     )
     
     if response is None or response.usage_metadata is None : 
