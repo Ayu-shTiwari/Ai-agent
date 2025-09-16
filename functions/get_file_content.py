@@ -1,9 +1,10 @@
 import os
 from config import MAX_FILE_SIZE
+from google.genai import types
 
-def get_file_content(working_dir,file_path):
-    abs_working_dir = os.path.abspath(working_dir)
-    abs_file_path = os.path.abspath(os.path.join(working_dir,file_path))
+def get_file_content(working_directory: str,file_path: str):
+    abs_working_dir = os.path.abspath(working_directory)
+    abs_file_path = os.path.abspath(os.path.join(working_directory,file_path))
 
     if not abs_file_path.startswith(abs_working_dir):
         return f'Error: {file_path} is outside the permitted working directory'
@@ -23,3 +24,16 @@ def get_file_content(working_dir,file_path):
     except UnicodeDecodeError:
         return f"Error: The file {abs_file_path} is not a readable file or contains unsupported characters."
     
+schema_get_files_content = types.FunctionDeclaration(
+    name="get_files_content",
+    description="Retrieves the content of a specific file as a string, constrained to the working directory.",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The path to the file to retrieve content from, relative to the working directory.",
+            ),
+        },
+    ),
+)
