@@ -22,20 +22,3 @@ def write_file(working_directory: str, file_path: str, content: str):
     except Exception as e:
         return f"Failed to write to file: {file_path}, {e}"
         
-schema_write_file = types.FunctionDeclaration(
-    name="write_file",
-    description="Overwrites an existing file or write to a new file if it doesn't exists (and creates required parent dirs safely), constrained to the working directory.",
-    parameters=types.Schema(
-        type=types.Type.OBJECT,
-        properties={
-            "file_path": types.Schema(
-                type=types.Type.STRING,
-                description="The path to the file to write to, relative to the working directory.",
-            ),
-            "content": types.Schema(
-                type=types.Type.STRING,
-                description="The content to write to the file as a string.",
-            ),
-        },
-    ),
-)

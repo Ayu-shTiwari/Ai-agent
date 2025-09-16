@@ -8,16 +8,5 @@ wheels/
 
 # Virtual environments
 .venv
-
 # Environment files
 .env
-
-uv.lock
-
-.python-version
-.pyproject.toml
-README.md
-
-lorem.txt
-
-tests.py

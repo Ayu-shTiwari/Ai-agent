@@ -19,7 +19,7 @@ def main():
         print(to_print)
     
     except Exception as e:
-        print(f"Erro: {e}")
+        print(f"Error: {e}")
         
 if __name__ == "__main__":
     main()

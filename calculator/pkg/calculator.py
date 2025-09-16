@@ -19,7 +19,7 @@ class Calculator:
             "*": 2,
             "/": 2,
             "^": 3,
-            "fact": 4.
+            "fact": 4,
         }
         self.right_associative = {"^"}
         
@@ -58,7 +58,7 @@ class Calculator:
     def set_mode(self, mode="deg"):
         self.mode = mode
 
-    def toggle_mode(self):
+    def toggle_mode(self,):
         self.mode = "rad" if self.mode == "deg" else "deg"
 
     def evaluate(self, expression):
