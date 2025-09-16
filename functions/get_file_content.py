@@ -24,9 +24,9 @@ def get_file_content(working_directory: str,file_path: str):
     except UnicodeDecodeError:
         return f"Error: The file {abs_file_path} is not a readable file or contains unsupported characters."
     
-schema_get_files_content = types.FunctionDeclaration(
-    name="get_files_content",
-    description="Retrieves the content of a specific file as a string, constrained to the working directory.",
+schema_get_file_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description="Retrieves the content of a given file as a string, constrained to the working directory.",
     parameters=types.Schema(
         type=types.Type.OBJECT,
         properties={
