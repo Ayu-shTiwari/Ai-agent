@@ -57,7 +57,7 @@ Follow these instructions to get the AI agent running on your local machine.
 
 1.  **Clone the repository:**
     ```sh
-    git clone (https://github.com/Ayu-shTiwari/Ai-agent)
+    git clone https://github.com/Ayu-shTiwari/Ai-agent
     cd AI-AGENT
     ```
 
